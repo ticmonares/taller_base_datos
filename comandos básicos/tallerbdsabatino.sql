@@ -39,6 +39,29 @@ INSERT INTO taller_bd_sabatino.tbl_usuario (nombre, edad, direccion, ciudad, tel
 VALUES ('Maria Sosa', '20', 'Roma 501', 'México', '722256394', 'maria@correo.com', 'activo', CURDATE());
 INSERT INTO taller_bd_sabatino.tbl_usuario (nombre, edad, direccion, ciudad, telefono, correo, status, fechaRegistro)
 VALUES ('Eduardo Valdez', '44', 'Domicilio Desconocido', 'Metepec', '7222233669', 'eduardo@gmail.com', 'activo', CURDATE());
+
+
+
+Fernando Monares de 28 años de edad con domicilio en San Sebastian 114, Toluca, cel: 7412589632, correo: fernando@gmail.com, y status activo
+Alejandro Gaitan de 25 años de edad con domicilio en San Mateo 41, México, cel: 7225896348, correo: alejandro@gmail.com y status activo
+Carlos Morales de 23 años de edad con domicilio en Laguna de la felicidad 114, Toluca, cel: 7221234567, correo: carlos@gmail.com y status activo
+Jocelyn Mejia de 18 años de edad con domicilio en Barrio de la paz S/N, México, cel: 722582958 , correo:jocelyn@gmail.com y status activo
+Fernando Trejo de 33 años de edad con domicilio en Matlazincas 16, Metepec, cel: 722048992 , correo:fernando@correo.com y status activo
+Sebastian Sosa de 45 años de edad con domicilio en Domicilio Desconocido, Toluca, cel: 7225654489, correo: sebastian@gmail.com y status activo
+Maria Gutierrez de 53 años de edad con domicilio en San Carlos 16, Toluca, cel: 7223692248, correo: maria@gmail.com y status activo
+Carlos Molinos de 19 años de edad con domicilio en Domicilio Desconocido, Toluca, cel: 7225514789, correo: carlos@correo.com y status activo
+Maria Sosa de 20 años de edad con domicilio en Roma 501, México, cel: 722256394 , correo:maria@correo.com y status activo
+Eduardo Valdez de 44 años de edad con domicilio en Domicilio Desconocido, Metepec, cel: 7222233669, correo: eduardo@gmail.com y status activo
 -- Avtualizamos algunos datos 
 UPDATE tbl_usuario SET nombre = "Eduardo valdéz" WHERE id_usuario = 10;
 UPDATE tbl_usuario SET nombre = "Alejandro Gaitán" WHERE id_usuario = 2;
+
+ALTER TABLE `taller_bd_sabatino`.`tbl_usuario` 
+ADD INDEX `FK_ID_TIPO_USUARIO_idx` (`idTipoUsuario` ASC);
+
+ALTER TABLE `taller_bd_sabatino`.`tbl_usuario` 
+ADD CONSTRAINT `FK_ID_TIPO_USUARIO`
+FOREIGN KEY (`idTipoUsuario`)
+REFERENCES `taller_bd_sabatino`.`tbl_tiposusuario` (`idTipoUsuario`)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION;
